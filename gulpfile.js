@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 
-var distPaths = ['./index.html', 'js/*.js', 'css/*.css'];
+var distPaths = ['./index.html', 'js/**/*.js', 'js/**/.jsx', 'css/**/*.css'];
 
 gulp.task('connect', function() {
   return connect.server({
@@ -15,7 +15,7 @@ gulp.task('assets', function () {
 });
  
 gulp.task('watch', function () {
-  gulp.watch(['./index.html', 'js/*.js', 'css/*.css'], ['assets']);
+  gulp.watch(distPaths, ['assets']);
 });
  
 gulp.task('default', ['connect', 'watch']);
